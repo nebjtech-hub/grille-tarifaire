@@ -7,7 +7,7 @@
 select public._creer_compte(
   gen_random_uuid(),
   'admin@centre-diagnostic.com',   -- e-mail de connexion
-  'RemplacezCeMotDePasse!',        -- 8 caractères minimum
+  'User@001',        -- 8 caractères minimum
   'Administrateur',                -- nom affiché
   'admin'
 );
