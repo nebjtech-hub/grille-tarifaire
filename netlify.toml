@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Clé « publishable » : conçue pour être exposée côté navigateur.
+  # La sécurité des données repose sur les règles RLS de Supabase.
+  VITE_SUPABASE_URL = "https://nagjjfbwgydqyxspbrgy.supabase.co"
+  VITE_SUPABASE_KEY = "sb_publishable_hx3oW_JPKsgtkeKlrXocBQ_NqaKHxmK"
+
+# Application monopage : toutes les routes renvoient vers index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
